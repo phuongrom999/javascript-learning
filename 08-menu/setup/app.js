@@ -71,4 +71,74 @@ const menu = [
     img: "./images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
+  {
+    id: 10,
+    title: "Kem ốc quế",
+    category: "dinner",
+    price: 16.99,
+    img: "./images/item-10.jpeg",
+    desc: `An dô ngon lành luôn mát ruột mát ngan hạ hỏa cho những ngày nóng bức hehehehehhe`,
+  },
 ];
+
+const sectionCenter = document.querySelector('.section-center')
+const btnContainer = document.querySelector('.btn-container')
+function displayFood(menuItems){
+  const Food = menuItems.map((item)=>{
+    return `
+    <article class="menu-item">
+            <img src="${item.img}" alt="menu item" class="photo" />
+            <div class="item-info">
+              <header>
+                <h4>${item.title}</h4>
+                <h4 class="price">$${item.price}</h4>
+              </header>
+              <p class="item-text">
+                ${item.desc}
+              </p>
+            </div>
+          </article>
+    `
+  })
+  sectionCenter.innerHTML =Food.join('')
+}
+
+displayFood(menu)
+
+
+const categories = menu.reduce((values,item)=>{
+  if(!values.includes(item.category))
+  {
+    values.push(item.category)
+  }
+  return values
+},['all'])
+
+const btnCategory = categories.map((item,index)=>{
+  return `
+    <button type="button" class="filter-btn" data-id="${item}">${item}</button>
+  `
+}).join('')
+
+btnContainer.innerHTML= btnCategory
+
+const filterBtns = document.querySelectorAll('.filter-btn')
+
+filterBtns.forEach((btn)=>{
+    btn.addEventListener('click',(e)=>{
+        // console.log(e.currentTarget.dataset.id)
+        const category = e.currentTarget.dataset.id
+        const menuCategory = menu.filter((menuItem)=>{
+            if(menuItem.category===category){
+              return menuItem
+            }
+           
+          })
+          displayFood(menuCategory)
+        // console.log(menuCategory)
+        if(category==='all')
+        {
+          displayFood(menu)
+        }
+    })
+})
