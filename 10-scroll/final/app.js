@@ -11,7 +11,9 @@ date.innerHTML = new Date().getFullYear();
 // ********** close links ************
 const navToggle = document.querySelector(".nav-toggle");
 const linksContainer = document.querySelector(".links-container");
+console.log(linksContainer.getBoundingClientRect().height)
 const links = document.querySelector(".links");
+
 
 navToggle.addEventListener("click", function () {
   // linksContainer.classList.toggle("show-links");
@@ -33,6 +35,7 @@ const topLink = document.querySelector(".top-link");
 
 window.addEventListener("scroll", function () {
   const scrollHeight = window.pageYOffset;
+  
   const navHeight = navbar.getBoundingClientRect().height;
   if (scrollHeight > navHeight) {
     navbar.classList.add("fixed-nav");
