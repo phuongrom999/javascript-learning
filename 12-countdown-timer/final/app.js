@@ -31,7 +31,7 @@ let tempMonth = tempDate.getMonth();
 let tempDay = tempDate.getDate();
 // months are ZERO index based;
 const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 11, 30, 0);
-
+console.log('ngay het su kien',futureDate)
 // let futureDate = new Date(2020, 3, 24, 11, 30, 0);
 
 const year = futureDate.getFullYear();
@@ -57,6 +57,8 @@ function getRemaindingTime() {
   const oneDay = 24 * 60 * 60 * 1000;
   const oneHour = 60 * 60 * 1000;
   const oneMinute = 60 * 1000;
+
+  console.log(t/60/60/1000/24)
   // calculate all values
   let days = t / oneDay;
   days = Math.floor(days);

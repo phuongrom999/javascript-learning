@@ -118,9 +118,12 @@ function displayMenuButtons() {
         values.push(item.category);
       }
       return values;
+     
     },
-    ["all"]
+    ['all']
+    
   );
+  console.log(categories)
   const categoryBtns = categories
     .map(function (category) {
       return `<button type="button" class="filter-btn" data-id=${category}>
@@ -135,13 +138,15 @@ function displayMenuButtons() {
 
   filterBtns.forEach(function (btn) {
     btn.addEventListener("click", function (e) {
-      // console.log(e.currentTarget.dataset);
+      console.log(e.currentTarget.dataset);
       const category = e.currentTarget.dataset.id;
       const menuCategory = menu.filter(function (menuItem) {
-        // console.log(menuItem.category);
+        
         if (menuItem.category === category) {
           return menuItem;
+         
         }
+        // console.log(menuCategory)
       });
       if (category === "all") {
         diplayMenuItems(menu);

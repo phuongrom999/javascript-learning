@@ -11,6 +11,7 @@ if (data.length === 1) {
 let people = [...data]
 if (data.length === 2) {
   people = [...data, ...data]
+  console.log(people)
 }
 container.innerHTML = people
   .map((person, slideIndex) => {
@@ -44,6 +45,7 @@ const startSlider = (type) => {
   const active = document.querySelector('.active')
   const last = document.querySelector('.last')
   let next = active.nextElementSibling
+  console.log(next)
   if (!next) {
     next = container.firstElementChild
   }
