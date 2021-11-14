@@ -23,6 +23,13 @@ const sublinks = [
       { label: 'customers', icon: 'fas fa-briefcase', url: 'products.html' },
     ],
   },
+  {
+    page: 'about',
+    links: [
+      { label: 'about', icon: 'fas fa-briefcase', url: 'products.html' },
+      { label: 'customers', icon: 'fas fa-briefcase', url: 'products.html' },
+    ],
+  },
 ];
 
 export default sublinks;
